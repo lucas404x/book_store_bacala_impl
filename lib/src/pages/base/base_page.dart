@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../navigation/app_navigation.dart';
+import '../../shared/components/app_bottom_navigation_bar.dart';
 
 class BasePage extends StatelessWidget {
   final Widget child;
@@ -26,26 +27,14 @@ class BasePage extends StatelessWidget {
 
     return Scaffold(
       body: child,
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: AppBottomNavigationBar(
         currentIndex: getCurrentPageIndex(context),
-        onTap: (index) => onItemTapped(context, index),         
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark),
-            label: 'Bookmark',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          )
+        onTap: (index) => onItemTapped(context, index),
+        navItems: const [
+          AppNavItem(iconData: Icons.home, label: 'Home'),
+          AppNavItem(iconData: Icons.bookmark, label: 'Bookmark'),
+          AppNavItem(iconData: Icons.search, label: 'Search'),
+          AppNavItem(iconData: Icons.person, label: 'Profile')
         ],
       ),
     );
