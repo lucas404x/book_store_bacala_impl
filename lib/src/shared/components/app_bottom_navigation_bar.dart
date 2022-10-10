@@ -55,11 +55,13 @@ class AppBottomNavigationBar extends StatelessWidget {
 }
 
 class AppNavItem {
-  final IconData iconData;
+  final IconData selectIconData;
+  final IconData unselectIconData;
   final String label;
 
   const AppNavItem({
-    required this.iconData,
+    required this.selectIconData,
+    required this.unselectIconData,
     required this.label,
   });
 }
@@ -85,12 +87,12 @@ class _BottomNavigationItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => onSelectItem?.call(index),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              navItem.iconData,
+              selected ? navItem.selectIconData : navItem.unselectIconData,
               color: selected ? secondaryColor : Colors.grey,
               size: 30,
               shadows: selected ? [

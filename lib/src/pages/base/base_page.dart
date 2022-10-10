@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../navigation/app_navigation.dart';
@@ -31,10 +33,10 @@ class BasePage extends StatelessWidget {
         currentIndex: getCurrentPageIndex(context),
         onTap: (index) => onItemTapped(context, index),
         navItems: const [
-          AppNavItem(iconData: Icons.home, label: 'Home'),
-          AppNavItem(iconData: Icons.bookmark, label: 'Bookmark'),
-          AppNavItem(iconData: Icons.search, label: 'Search'),
-          AppNavItem(iconData: Icons.person, label: 'Profile')
+          AppNavItem(selectIconData: Icons.home, unselectIconData: Icons.home_outlined, label: 'Home'),
+          AppNavItem(selectIconData: Icons.bookmark, unselectIconData: Icons.bookmark_outline, label: 'Bookmark'),
+          AppNavItem(selectIconData: CupertinoIcons.search, unselectIconData: CupertinoIcons.search, label: 'Search'),
+          AppNavItem(selectIconData: CupertinoIcons.person_fill, unselectIconData: CupertinoIcons.person, label: 'Profile')
         ],
       ),
     );
