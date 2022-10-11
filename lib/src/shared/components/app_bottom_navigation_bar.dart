@@ -27,14 +27,12 @@ class AppBottomNavigationBar extends StatelessWidget {
       );
     }
 
-    const radius = Radius.circular(18);
-
     return Container(
       height: 95.0,
       width: double.maxFinite,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: const BorderRadius.only(topLeft: radius, topRight: radius),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(.05),

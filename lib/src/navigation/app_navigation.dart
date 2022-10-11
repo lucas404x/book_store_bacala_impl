@@ -48,7 +48,7 @@ class AppNavigation {
           GoRoute(
             path: Routes.profile.path,
             builder: (context, state) => const ProfilePage(),
-          )
+          ),
         ],
       ),
     ],
