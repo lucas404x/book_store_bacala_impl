@@ -1,9 +1,9 @@
-import 'package:bacala/src/shared/components/book_rate.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/data/books.dart';
 import '../../../core/models/book_model.dart';
 import '../../../shared/components/book_profile.dart';
+import '../../../shared/components/book_rate.dart';
 import '../../../theme/app_theme.dart';
 
 class BooksList extends StatefulWidget {
@@ -34,18 +34,13 @@ class _BooksListState extends State<BooksList> {
   }
 }
 
-class _BookTile extends StatefulWidget {
+class _BookTile extends StatelessWidget {
   final BookModel book;
 
   const _BookTile({
     required this.book,
   });
 
-  @override
-  State<_BookTile> createState() => __BookTileState();
-}
-
-class __BookTileState extends State<_BookTile> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -58,7 +53,7 @@ class __BookTileState extends State<_BookTile> {
           Stack(
             children: [
               BookProfile(
-                image: widget.book.image,
+                image: book.image,
                 width: 132,
                 height: 180,
               ),
@@ -66,19 +61,22 @@ class __BookTileState extends State<_BookTile> {
                 left: 8,
                 top: 8,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                    vertical: 4.0,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(18.0),
                   ),
-                  child: BookRate(rate: widget.book.rate),
+                  child: BookRate(rate: book.rate),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 8.0),
           Text(
-            widget.book.title,
+            book.title,
             overflow: TextOverflow.ellipsis,
             style: textTheme.bodyText1?.copyWith(
               color: AppTheme.headlineColor,
@@ -88,7 +86,7 @@ class __BookTileState extends State<_BookTile> {
           ),
           const SizedBox(height: 8.0),
           Text(
-            widget.book.author,
+            book.author,
             style: textTheme.caption?.copyWith(
               color: AppTheme.textColor,
             ),
