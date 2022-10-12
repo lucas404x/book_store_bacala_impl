@@ -21,7 +21,7 @@ class _GendersListState extends State<GendersList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: 36,
       child: ListView(
         physics: const BouncingScrollPhysics(),
         clipBehavior: Clip.none,
@@ -36,7 +36,7 @@ class _GendersListState extends State<GendersList> {
                 onTap: () => setState(() => _selectedGender = gender),
               ),
             )
-            .expand((element) => [element, const SizedBox(width: 24.0)])
+            .expand((element) => [element, const SizedBox(width: 16.0)])
             .toList()
         ],
       ),
@@ -75,7 +75,7 @@ class _GenderTile extends StatelessWidget {
           ] : null
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 36.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Center(
             child: Text(
               gender.description,

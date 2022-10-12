@@ -3,15 +3,11 @@ import 'package:flutter/material.dart';
 import '../../../core/data/books.dart';
 import '../../../core/models/book_model.dart';
 import '../../../shared/components/book_profile.dart';
+import '../../../theme/app_theme.dart';
 
-class UnreadBookCard extends StatefulWidget {
+class UnreadBookCard extends StatelessWidget {
   const UnreadBookCard({super.key});
 
-  @override
-  State<UnreadBookCard> createState() => _UnreadBookCardState();
-}
-
-class _UnreadBookCardState extends State<UnreadBookCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -57,13 +53,13 @@ class _UnreadBookWarningMessage extends StatelessWidget {
             TextSpan(
               text: 'Remember, Jelly. You have an unfinished book since ',
               style: textTheme.bodyText1?.copyWith(
-                color: Colors.grey[700],
+                color: AppTheme.textColor,
               ),
               children: [
                 TextSpan(
                   text: 'July 30, 2021\n\n',
                   style: textTheme.bodyText1?.copyWith(
-                    color: Colors.grey[700],
+                    color: AppTheme.textColor,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -161,20 +157,20 @@ class __UnreadBookInfoState extends State<_UnreadBookInfo> with TickerProviderSt
                     TextSpan(
                       text: 'Book ',
                       style: textTheme.bodyText2?.copyWith(
-                        color: Colors.grey[600],
+                        color: AppTheme.textColor,
                       ),
                       children: [
                         TextSpan(
                           text: '${_animation.value} ',
                           style: textTheme.bodyText2?.copyWith(
-                            color: Colors.grey[600],
+                            color: AppTheme.textColor,
                             fontWeight: FontWeight.bold,
                           ),
                           children: [
                             TextSpan(
                               text: 'of ${kBooks.length}',
                               style: textTheme.bodyText2?.copyWith(
-                                color: Colors.grey[600],
+                                color: AppTheme.textColor,
                               ),
                             ),
                           ],
