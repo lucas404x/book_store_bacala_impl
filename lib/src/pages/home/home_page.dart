@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/helpers/scroll_behavior_without_glow.dart';
-import 'components/categories_list.dart';
+import 'components/genders_list.dart';
 import 'components/presentation_container.dart';
 import 'components/unread_book_card.dart';
 
@@ -31,6 +31,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(height: 148),
                     GendersList(),
+                    SizedBox(height: 16.0),
+
                   ],
                 ),
                 Positioned(
