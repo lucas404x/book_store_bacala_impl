@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../navigation/app_navigation.dart';
@@ -23,15 +22,11 @@ class BasePage extends StatelessWidget {
       return Routes.values.indexWhere((value) => value.path == location);
     }
 
-    void onItemTapped(BuildContext context, int index) {
-      GoRouter.of(context).go(Routes.values[index].path);
-    }
-
     return Scaffold(
       body: child,
       bottomNavigationBar: AppBottomNavigationBar(
         currentIndex: getCurrentPageIndex(context),
-        onTap: (index) => onItemTapped(context, index),
+        onTap: (index) => context.go(Routes.values[index].path),
         navItems: const [
           AppNavItem(selectIconData: Icons.home, unselectIconData: Icons.home_outlined, label: 'Home'),
           AppNavItem(selectIconData: Icons.bookmark, unselectIconData: Icons.bookmark_outline, label: 'Bookmark'),

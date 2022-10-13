@@ -6,11 +6,17 @@ import 'package:bacala/src/pages/search/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../pages/book_details/book_details_page.dart';
+
 enum Routes {
+  // Bottom nav routes
   home('/home'),
   bookmark('/bookmark'),
   search('/search'),
-  profile('/profile');
+  profile('/profile'),
+
+  // Commom routes
+  bookDetails('/book-details');
 
   const Routes(this.path);
 
@@ -50,6 +56,11 @@ class AppNavigation {
             builder: (context, state) => const ProfilePage(),
           ),
         ],
+      ),
+      GoRoute(
+        path: Routes.bookDetails.path,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => BookDetailsPage(bookId: state.extra as int),
       ),
     ],
   );

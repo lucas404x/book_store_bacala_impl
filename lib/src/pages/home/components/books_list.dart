@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/data/books.dart';
 import '../../../core/models/book_model.dart';
+import '../../../navigation/app_navigation.dart';
 import '../../../shared/components/book_profile.dart';
 import '../../../shared/components/book_rate.dart';
 import '../../../theme/app_theme.dart';
@@ -44,55 +46,58 @@ class _BookTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return SizedBox(
-      width: 132,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Stack(
-            children: [
-              BookProfile(
-                image: book.image,
-                width: 132,
-                height: 180,
-              ),
-              Positioned(
-                left: 8,
-                top: 8,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8.0,
-                    vertical: 4.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
-                  child: BookRate(rate: book.rate),
+    return GestureDetector(
+      onTap: () => context.push(Routes.bookDetails.path, extra: book.id),
+      child: SizedBox(
+        width: 132,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Stack(
+              children: [
+                BookProfile(
+                  image: book.image,
+                  width: 132,
+                  height: 180,
                 ),
+                Positioned(
+                  left: 8,
+                  top: 8,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0,
+                      vertical: 4.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                    child: BookRate(rate: book.rate),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8.0),
+            Text(
+              book.title,
+              overflow: TextOverflow.ellipsis,
+              style: textTheme.bodyText1?.copyWith(
+                color: AppTheme.headlineColor,
+                fontWeight: FontWeight.bold,
               ),
-            ],
-          ),
-          const SizedBox(height: 8.0),
-          Text(
-            book.title,
-            overflow: TextOverflow.ellipsis,
-            style: textTheme.bodyText1?.copyWith(
-              color: AppTheme.headlineColor,
-              fontWeight: FontWeight.bold,
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 8.0),
-          Text(
-            book.author,
-            style: textTheme.caption?.copyWith(
-              color: AppTheme.textColor,
+            const SizedBox(height: 8.0),
+            Text(
+              book.author,
+              style: textTheme.caption?.copyWith(
+                color: AppTheme.textColor,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
