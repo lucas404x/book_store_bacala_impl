@@ -64,7 +64,7 @@ class _GenderTile extends StatelessWidget {
         decoration: BoxDecoration(
           border: !isSelected ? Border.all(color: Colors.grey, strokeAlign: StrokeAlign.outside, width: 1.5) : null,
           borderRadius: BorderRadius.circular(6.0),
-          color: isSelected ? Theme.of(context).colorScheme.secondary : null,
+          color: isSelected ? Theme.of(context).primaryColor : null,
           boxShadow: isSelected ? [
             BoxShadow(
               offset: const Offset(5, 25),

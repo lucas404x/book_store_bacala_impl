@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.workSansTextTheme(),
         colorScheme: theme.colorScheme.copyWith(
           primary: AppTheme.primaryColor,
-          secondary: AppTheme.secondaryColor,
+          secondary: AppTheme.primaryColor
         )
       ),
       routerConfig: AppNavigation.instance.routers,

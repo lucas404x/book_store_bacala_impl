@@ -79,7 +79,7 @@ class _BottomNavigationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final secondaryColor = Theme.of(context).colorScheme.secondary;
+    final primaryColor = Theme.of(context).primaryColor;
     final textTheme = Theme.of(context).textTheme;
 
     return GestureDetector(
@@ -91,14 +91,14 @@ class _BottomNavigationItem extends StatelessWidget {
           children: [
             Icon(
               selected ? navItem.selectIconData : navItem.unselectIconData,
-              color: selected ? secondaryColor : Colors.grey,
+              color: selected ? primaryColor : Colors.grey,
               size: 30,
               shadows: selected ? [
                 BoxShadow(
                   blurRadius: 30,
                   spreadRadius: 20,
                   offset: const Offset(2, 10),
-                  color: secondaryColor.withOpacity(.35)
+                  color: primaryColor.withOpacity(.35)
                 )
               ] : null,
             ),
@@ -106,7 +106,7 @@ class _BottomNavigationItem extends StatelessWidget {
               navItem.label,
               style: textTheme.subtitle1?.copyWith(
                 fontSize: 12,
-                color: selected ? secondaryColor : Colors.grey,
+                color: selected ? primaryColor : Colors.grey,
                 fontWeight: FontWeight.bold,
               ),
             ),

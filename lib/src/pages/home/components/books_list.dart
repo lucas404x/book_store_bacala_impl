@@ -21,6 +21,7 @@ class _BooksListState extends State<BooksList> {
     return SizedBox(
       height: 230,
       child: ListView.builder(
+        addAutomaticKeepAlives: true,
         scrollDirection: Axis.horizontal,
         clipBehavior: Clip.none,
         physics: const BouncingScrollPhysics(),

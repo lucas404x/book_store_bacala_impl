@@ -6,11 +6,13 @@ class BookProfile extends StatelessWidget {
     required this.image,
     required this.width,
     required this.height,
+    this.radius = 12.0,
   });
 
   final String image;
   final double width;
   final double height;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class BookProfile extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(radius),
         image: DecorationImage(
           image: AssetImage(image),
           fit: BoxFit.cover,

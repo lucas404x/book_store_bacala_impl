@@ -6,6 +6,7 @@ class BookModel {
     required this.title,
     required this.author,
     required this.image,
+    required this.publishedDate,
     required this.synopsis,
     required this.gender,
     required this.rate,
@@ -18,6 +19,7 @@ class BookModel {
   final String title;
   final String author;
   final String image;
+  final DateTime publishedDate;
   final String synopsis;
   final Gender gender;
   final double rate;

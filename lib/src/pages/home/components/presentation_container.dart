@@ -11,7 +11,7 @@ class PresentationContainer extends StatelessWidget {
       height: 225,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
-        color: Theme.of(context).colorScheme.secondary,
+        color: Theme.of(context).primaryColor,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
